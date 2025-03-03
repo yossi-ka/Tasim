@@ -1,0 +1,168 @@
+:root {
+  --primary-color: #1e90ff;
+  --secondary-color: #6c757d;
+}
+
+.homeContainer {
+  direction: rtl;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+.homeContainer header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: linear-gradient(
+    to right,
+    var(--primary-color) 40%,
+    #a7d3ff,
+    #f5faff,
+    white
+  );
+}
+
+.homeContainer img {
+  height: 120px;
+  margin-left: 10px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.homeContainer nav {
+  margin-right: auto;
+}
+
+.homeContainer .menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+.homeContainer .menu li {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.homeContainer .menu li:hover {
+  color: #bfdeff;
+}
+
+.homeContainer .logout {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 40px;
+}
+
+.homeContainer .logout:hover {
+  background-color: #c83a48;
+}
+
+.mainContent {
+  padding: 2rem;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 1.5rem;
+}
+
+.card {
+  width: 220px;
+  height: 220px;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.cardIcon {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+  color: #3182ce;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+  color: #718096;
+  text-align: center;
+}
+
+.footer {
+  background-color: #2d3748;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.homeContainer footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(to right, #62b1ff, var(--primary-color), #62b1ff);
+  padding: 10px 0;
+}
+
+@media (max-width: 1024px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cardContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .headerContent {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navigation {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

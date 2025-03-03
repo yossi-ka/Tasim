@@ -1,0 +1,64 @@
+.formContainer {
+  max-width: 400px;
+  min-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+  text-align: right;
+}
+
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer label {
+  font-weight: 100;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.formContainer input {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.formContainer input:focus {
+  border-color: #007bff;
+}
+
+.formContainer input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.formContainer button {
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.formContainer button:hover {
+  background-color: #0056b3;
+}
+
+.formContainer .paymentStatus .partialAmount {
+  max-width: 88px;
+  margin-right: 5px;
+  max-height: 5px;
+  font-size: 15px;
+}
