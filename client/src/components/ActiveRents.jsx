@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SingleRent from "./rents-comp/SingleRent";
+import SingleRent from "./SingleRent";
 
 function ActiveRents() {
   const [activeRents, setActiveRents] = useState([]);

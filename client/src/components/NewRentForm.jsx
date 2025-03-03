@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import classes from "../../css/newRentForm.module.css";
+import classes from "../css/newRentForm.module.css";
 
 function NewRentForm() {
   const [paymentStatus, setPaymentStatus] = useState("");
@@ -92,7 +92,7 @@ function NewRentForm() {
           {/* אם נבחר "חלקי", מוצג שדה להזנת סכום */}
           {paymentStatus === "חלקי" && (
             <input
-            className={classes.partialAmount}
+              className={classes.partialAmount}
               ref={partialAmountRef}
               type="number"
               placeholder="סכום ששולם"

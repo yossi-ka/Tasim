@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SingleRent from "./rents-comp/SingleRent";
+import SingleRent from "./SingleRent";
 import { useNavigate } from "react-router-dom";
 import classes from "../css/archive.module.css";
 

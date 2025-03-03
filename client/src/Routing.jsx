@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import Archive from "./components/Archive.jsx";
 import ProtectedPages from "./components/ProtectedPages.jsx";
 import ActiveRents from "./components/ActiveRents.jsx";
-import NewArch from "./components/arch-comp/NewRentForm.jsx";
+import NewArch from "./components/NewRentForm.jsx";
 
 function Routing() {
   return (
