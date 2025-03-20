@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import classes from "../css/newRentForm.module.css";
+import { formatDate } from "../services/formatDate";
 
 function NewRentForm() {
   const [paymentStatus, setPaymentStatus] = useState("");
@@ -13,9 +14,11 @@ function NewRentForm() {
   const returnRef = useRef();
   const agentRef = useRef();
   const partialAmountRef = useRef();
+  const notesRef = useRef();
 
   const handleClick = (e) => {
     e.preventDefault();
+    console.log(formatDate(fromDateRef.current.value));
     const newRent = {
       customer_name: nameRef.current.value,
       device_id: deviceRef.current.value,
@@ -31,8 +34,8 @@ function NewRentForm() {
           : partialAmountRef.current.value,
       agent_id: agentRef.current.value,
       returned: returnRef.current.checked ? 1 : 0,
+      notes: notesRef.current.value,
     };
-    console.log(newRent);
 
     fetch("http://localhost:3001/rentals/add", {
       method: "POST",
@@ -105,6 +108,8 @@ function NewRentForm() {
         <input ref={returnRef} type="checkbox" />
         <label htmlFor="name">קוד סוכן (אופציונלי):</label>
         <input ref={agentRef} type="number" />
+        <label htmlFor="name">הערות</label>
+        <textarea ref={notesRef} type="text" />
         <button>הוסף</button>
       </form>
     </div>

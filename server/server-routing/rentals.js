@@ -64,11 +64,12 @@ router.post("/add", async (req, res) => {
     status_payment,
     agent_id,
     returned,
+    notes,
   } = req.body;
 
   db.query(
-    `INSERT INTO rentals (customer_name, device_id, country, from_date, to_date, price, status_payment, agent_id, returned) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    `INSERT INTO rentals (customer_name, device_id, country, from_date, to_date, price, status_payment, agent_id, returned, notes) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     [
       customer_name,
       Number(device_id),
@@ -78,7 +79,8 @@ router.post("/add", async (req, res) => {
       Number(price),
       Number(status_payment),
       agent_id || null,
-      Number(1),
+      Number(returned),
+      notes || null,
     ],
 
     (err, result) => {

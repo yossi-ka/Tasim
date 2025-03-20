@@ -1,3 +1,4 @@
+import classes from "../css/activeRents.module.css";
 import React, { useEffect, useState } from "react";
 import SingleRent from "./SingleRent";
 
@@ -19,6 +20,7 @@ function ActiveRents() {
           </div>
         );
       })}
+      {activeRents.length === 0 && <span className={classes.noData}>לא קיימים נתונים</span>}
     </div>
   );
 }
