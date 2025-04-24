@@ -9,7 +9,7 @@ function Home() {
     <div>
       <main className={classes.mainContent}>
         <div className={classes.cardContainer}>
-          <div onClick={()=>navigate("/rents")} className={classes.card}>
+          <div onClick={() => navigate("/rentals")} className={classes.card}>
             <PhoneCall className={classes.cardIcon} color="green" />
             <h3 className={classes.cardTitle}>השכרות פעילות</h3>
             <p className={classes.cardDescription}>
@@ -23,7 +23,10 @@ function Home() {
             <p className={classes.cardDescription}>היסטוריית השכרות קודמות</p>
           </div>
 
-          <div className={classes.card}>
+          <div
+            onClick={() => navigate("/access-numbers")}
+            className={classes.card}
+          >
             <Globe className={classes.cardIcon} color="brown" />
             <h3 className={classes.cardTitle}>מספרי גישה</h3>
             <p className={classes.cardDescription}>

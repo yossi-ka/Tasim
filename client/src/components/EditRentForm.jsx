@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import classes from "../css/newRentForm.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
+import { editRent } from "./Servides-fetch/RentActions";
 
 function EditRentForm() {
   const [paymentStatus, setPaymentStatus] = useState("");
@@ -46,11 +47,7 @@ function EditRentForm() {
       notes: notesRef.current.value,
     };
 
-    fetch(`http://localhost:3001/rentals/update/${rent.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newRent),
-    });
+    editRent(newRent, rent.id);
     navigate(-1);
   };
 
@@ -136,7 +133,7 @@ function EditRentForm() {
           <label htmlFor="partial">חלקי</label>
 
           {/* אם נבחר "חלקי", מוצג שדה להזנת סכום */}
-          {paymentStatus==="חלקי" && (
+          {paymentStatus === "חלקי" && (
             <input
               className={classes.partialAmount}
               ref={partialAmountRef}

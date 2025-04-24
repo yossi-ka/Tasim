@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import classes from "../css/newRentForm.module.css";
 import { formatDate } from "../services/formatDate";
 import { useNavigate } from "react-router-dom";
+import { addRent } from "./Servides-fetch/RentActions";
 
 function NewRentForm() {
   const [paymentStatus, setPaymentStatus] = useState("");
@@ -38,12 +39,7 @@ function NewRentForm() {
       returned: returnRef.current.checked ? 1 : 0,
       notes: notesRef.current.value,
     };
-
-    fetch("http://localhost:3001/rentals/add", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newRent),
-    });
+    addRent(newRent);
     navigate(-1);
   };
 

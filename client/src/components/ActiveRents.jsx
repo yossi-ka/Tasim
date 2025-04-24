@@ -7,11 +7,11 @@ import { CircularProgress } from "@mui/material";
 import { formatDate } from "../services/formatDate";
 import searchProps from "../services/searchANT";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { deleteRent, getArchiveRents } from "./Servides-fetch/RentActions";
+import { deleteRent, getActiveRents } from "./Servides-fetch/RentActions";
 
-function Archive() {
+function ActiveRents() {
   const navigate = useNavigate();
-  const [archive, setArchive] = useState([]);
+  const [active, setActive] = useState([]);
   const [loading, setLoading] = useState(false);
   const [expandedRowKeys, setExpandedRowKeys] = useState([]);
 
@@ -100,7 +100,7 @@ function Archive() {
 
   useEffect(() => {
     setLoading(true);
-    getArchiveRents(setArchive);
+    getActiveRents(setActive);
     setLoading(false);
   }, []);
 
@@ -108,7 +108,7 @@ function Archive() {
     <div className={classes.archiveContainer}>
       <button
         className={classes.addButton}
-        onClick={() => navigate("/archive/new")}
+        onClick={() => navigate("/rentals/new")}
       >
         הוסף
       </button>
@@ -118,7 +118,7 @@ function Archive() {
           <Table
             columns={columns}
             pagination={{ pageSize: 10 }}
-            dataSource={archive}
+            dataSource={active}
             bordered
             className={classes.archiveTable}
             rowKey={(record) => record.id}
@@ -145,4 +145,4 @@ function Archive() {
   );
 }
 
-export default Archive;
+export default ActiveRents;

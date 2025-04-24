@@ -123,8 +123,6 @@ router.put("/update/:id", async (req, res) => {
   });
 });
 
-
-
 router.delete("/delete/:id", async (req, res) => {
   db.query(
     "DELETE FROM rentals WHERE id = ?",

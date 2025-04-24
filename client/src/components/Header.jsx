@@ -16,7 +16,7 @@ function Header() {
           <ul className={classes.menu}>
             <li onClick={() => navigate("/")}>עמוד הבית</li>
             <li onClick={() => navigate("/rentals/new")}>הוספת השכרה</li>
-            <li>מספרי גישה</li>
+            <li onClick={() => navigate("/access-numbers")}>מספרי גישה</li>
             <button className={classes.logout}>התנתק</button>
           </ul>
         </nav>
