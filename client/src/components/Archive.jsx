@@ -7,6 +7,7 @@ import { CircularProgress } from "@mui/material";
 import { formatDate } from "../services/formatDate";
 import searchProps from "../services/searchANT";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { deleteRent } from "./RentActions";
 
 function Archive() {
   const navigate = useNavigate();
@@ -22,18 +23,8 @@ function Archive() {
     }
   };
 
-  const handleDelete = (id) => {
-    fetch(`http://localhost:3001/rentals/${id}`, { method: "DELETE" }).then(
-      () => {
-        fetch("http://localhost:3001/rentals")
-          .then((res) => res.json())
-          .then((data) => setArchive(data.message));
-      }
-    );
-  };
-
-  const handleEdit = (id) => {
-    navigate(`/rentals/${id}`);
+  const handleEdit = (rent) => {
+    navigate("/rentals/edit", { state: { rent } });
   };
 
   const columns = [
@@ -100,7 +91,7 @@ function Archive() {
               color: "red",
               cursor: "pointer",
             }}
-            onClick={() => handleDelete(record.id)}
+            onClick={() => deleteRent(record.id)}
           />
         </>
       ),
