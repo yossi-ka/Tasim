@@ -1,11 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classes from "../css/newRentForm.module.css";
-import { formatDate } from "../services/formatDate";
 import { useNavigate } from "react-router-dom";
 import { addRent } from "./Servides-fetch/RentActions";
+import Select from "react-select";
 
 function NewRentForm() {
   const [paymentStatus, setPaymentStatus] = useState("");
+  const [countries, setCountries] = useState("");
 
   const nameRef = useRef();
   const countryRef = useRef();
@@ -19,9 +20,41 @@ function NewRentForm() {
   const notesRef = useRef();
   const navigate = useNavigate();
 
+  async function fetchCountries() {
+    const d = await fetch(
+      "https://data.gov.il/api/3/action/datastore_search?resource_id=b1fdc757-07e3-4875-a023-99e59ac44f24"
+    );
+    const data = await d.json();
+    const c = await data.result.records;
+    const addIL = [
+      ...c,
+      {
+        _id: 122,
+        שם_מדינה_רשמי: "ישראל",
+        שם_מדינה_רשמי_אנגלי: "Israel",
+        שם_מדינה_במאגר: "ישראל",
+        שם_מדינה_אנגלי_במאגר: "Israel",
+        יבשת: "אסיה",
+        סטטוס_יחסים: "הודעה משותפת",
+        שם_עיר_בירה: "ירושלים",
+        שם_עיר_בירה_אנגלי: "Jerusalem",
+        תאריך_כינון_יחסים: "1993-05-02T00:00:00",
+        סוג_ייצוג_מדינה: "",
+        נציגות_מאומנת: "",
+        נציגות_מאומנת_לעניינים_קונסולריים: "",
+        נציגות_מטפלת: "",
+        מדינה_קשת_שרות: "ל",
+      },
+    ];
+    setCountries(addIL);
+  }
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(formatDate(fromDateRef.current.value));
     const newRent = {
       customer_name: nameRef.current.value,
       device_id: deviceRef.current.value,
@@ -49,7 +82,16 @@ function NewRentForm() {
         <label htmlFor="name">שם הלקוח:</label>
         <input required ref={nameRef} type="text" />
         <label htmlFor="country">מדינה:</label>
-        <input required ref={countryRef} type="text" />
+        <Select
+          placeholder={"בחר מדינה מתוך הרשימה"}
+          options={
+            countries.length > 0 &&
+            countries.map((country) => ({
+              value: country.שם_מדינה_במאגר,
+              label: country.שם_מדינה_במאגר,
+            }))
+          }
+        />
         <label htmlFor="device">מס' מכשיר:</label>
         <input required ref={deviceRef} type="number" />
         <label htmlFor="name">מתאריך:</label>

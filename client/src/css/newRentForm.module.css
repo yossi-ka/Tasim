@@ -22,7 +22,7 @@
   margin-top: 10px;
 }
 
-.formContainer input {
+.formContainer input, .formContainer select {
   padding: 8px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -30,7 +30,8 @@
   outline: none;
 }
 
-.formContainer input:focus {
+.formContainer input:focus, .formContainer select:focus {
+  outline: none;
   border-color: #007bff;
 }
 
