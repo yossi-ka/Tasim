@@ -34,22 +34,22 @@ router.get("/archive", async (req, res) => {
   );
 });
 
-router.get("/:id", async (req, res) => {
-  db.query(
-    "SELECT * FROM rentals WHERE id = ?",
-    [req.params.id],
-    (err, result) => {
-      if (err) {
-        console.error("Tasim - Error: ", err);
-      } else {
-        res.json({
-          message: result,
-          success: true,
-        });
-      }
-    }
-  );
-});
+// router.get("/:id", async (req, res) => {
+//   db.query(
+//     "SELECT * FROM rentals WHERE id = ?",
+//     [req.params.id],
+//     (err, result) => {
+//       if (err) {
+//         console.error("Tasim - Error: ", err);
+//       } else {
+//         res.json({
+//           message: result,
+//           success: true,
+//         });
+//       }
+//     }
+//   );
+// });
 
 router.post("/add", async (req, res) => {
   console.log(req.body);
@@ -108,11 +108,13 @@ router.put("/update/:id", async (req, res) => {
   });
 
   // יצירת שאילתת UPDATE דינאמית
-  const fields = Object.keys(updateRent).map((key) => `${key} = ?`).join(", ");
+  const fields = Object.keys(updateRent)
+    .map((key) => `${key} = ?`)
+    .join(", ");
   const values = Object.values(updateRent);
 
   const sql = `UPDATE rentals SET ${fields} WHERE id = ?`;
-  
+
   db.query(sql, [...values, id], (err, result) => {
     if (err) {
       console.error("שגיאה בעדכון:", err);
@@ -164,6 +166,45 @@ router.delete("/delete/:id", async (req, res) => {
       });
     }
   );
+});
+
+router.get("/rcuk-rentals", async (req, res) => {
+  db.query("SELECT * FROM rcuk_rentals", async (err, result) => {
+    if (err) {
+      console.error("Tasim - Error: ", err);
+      return res
+        .status(500)
+        .json({ message: "שגיאה בשליפת הנתונים", success: false });
+    }
+
+    const dataRcukIds = result?.map((rent) => rent.rcuk_id);
+
+    try {
+      const data = await Promise.all(
+        dataRcukIds?.map((id) =>
+          fetch(`https://myaccount.rcuk.com/api/get-rental?rental_id=${id}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "api-key": process.env.RCUK_API_KEY,
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => data.rentals[0])
+        )
+      );
+
+      res.json({
+        message: data,
+        success: true,
+      });
+    } catch (fetchError) {
+      console.error("שגיאה בשליפת נתוני השכרות מ-RCUK:", fetchError);
+      res
+        .status(500)
+        .json({ message: "שגיאה בשליפת נתוני השכרות", success: false });
+    }
+  });
 });
 
 export default router;

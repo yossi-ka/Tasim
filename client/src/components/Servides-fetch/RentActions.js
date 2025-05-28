@@ -66,3 +66,13 @@ export const editRent = async (newRent, rentId) => {
     console.error(error);
   }
 };
+
+export const getRcukRentals = async () => {
+  try {
+    const response = await fetch("http://localhost:3001/rentals/rcuk-rentals");
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}

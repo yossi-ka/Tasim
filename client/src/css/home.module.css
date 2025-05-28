@@ -115,7 +115,8 @@
   width: 4rem;
   height: 4rem;
   margin-bottom: 1rem;
-  color: #3182ce;
+  /* color: #3182ce; */
+  font-size: 4rem;
 }
 
 .cardTitle {

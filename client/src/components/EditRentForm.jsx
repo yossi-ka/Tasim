@@ -29,6 +29,7 @@ function EditRentForm() {
 
   const handleClick = (e) => {
     e.preventDefault();
+    if (partialAmountRef.current.value <= 1) return;
     const newRent = {
       customer_name: nameRef.current.value,
       device_id: deviceRef.current.value,
@@ -140,6 +141,7 @@ function EditRentForm() {
               type="number"
               placeholder="סכום ששולם"
               defaultValue={Number(rent.status_payment)}
+              min={2}
               required
             />
           )}

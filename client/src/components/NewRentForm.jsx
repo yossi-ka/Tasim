@@ -86,7 +86,7 @@ function NewRentForm() {
           placeholder={"בחר מדינה מתוך הרשימה"}
           options={
             countries.length > 0 &&
-            countries.map((country) => ({
+            countries?.map((country) => ({
               value: country.שם_מדינה_במאגר,
               label: country.שם_מדינה_במאגר,
             }))
@@ -140,6 +140,7 @@ function NewRentForm() {
               ref={partialAmountRef}
               type="number"
               placeholder="סכום ששולם"
+              min={2}
               required
             />
           )}
