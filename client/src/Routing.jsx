@@ -9,6 +9,7 @@ import AccessNumbers from "./components/AccessNumbers.jsx";
 import ActiveRents from "./components/ActiveRents.jsx";
 import SimActivation from "./components/SimActivation.jsx";
 import RcukRentals from "./components/RcukRentals.jsx";
+import ILnumbers from "./components/ILnumbers.jsx";
 
 function Routing() {
   return (
@@ -24,6 +25,7 @@ function Routing() {
           <Route path="/rentals/edit" element={<EditRentForm />} />
           <Route path="/access-numbers" element={<AccessNumbers />} />
           <Route path="/sim-activation" element={<SimActivation />} />
+          <Route path="/il-numbers" element={<ILnumbers />} />
         </Route>
       </Routes>
     </BrowserRouter>

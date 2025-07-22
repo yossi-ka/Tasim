@@ -16,9 +16,9 @@
 }
 
 .formContainer label {
-  font-weight: 100;
+  /* font-weight: 100; */
   font-size: 14px;
-  font-weight: bold;
+  /* font-weight: bold; */
   margin-top: 10px;
 }
 

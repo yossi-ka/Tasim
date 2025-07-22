@@ -11,7 +11,7 @@ export const getArchiveRents = async (setArchive) => {
 
 export const getActiveRents = async () => {
   try {
-    const response = await fetch("http://localhost:3001/rentals/active");
+    const response = await fetch(`${process.env.BACKEND_URL}/rentals/active`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -21,7 +21,7 @@ export const getActiveRents = async () => {
 
 export const addRent = async (newRent) => {
   try {
-    const response = await fetch("http://localhost:3001/rentals/add", {
+    const response = await fetch(`${process.env.BACKEND_URL}/rentals/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newRent),
@@ -36,7 +36,7 @@ export const addRent = async (newRent) => {
 export const deleteRent = async (rentId) => {
   try {
     const response = await fetch(
-      `http://localhost:3001/rentals/delete/${rentId}`,
+      `${process.env.BACKEND_URL}/rentals/delete/${rentId}`,
       {
         method: "DELETE",
       }
@@ -53,7 +53,7 @@ export const deleteRent = async (rentId) => {
 export const editRent = async (newRent, rentId) => {
   try {
     const response = await fetch(
-      `http://localhost:3001/rentals/update/${rentId}`,
+      `${process.env.BACKEND_URL}/rentals/update/${rentId}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -69,7 +69,7 @@ export const editRent = async (newRent, rentId) => {
 
 export const getRcukRentals = async () => {
   try {
-    const response = await fetch("http://localhost:3001/rentals/rcuk-rentals");
+    const response = await fetch(`${process.env.BACKEND_URL}/rentals/rcuk-rentals`);
     const data = await response.json();
     return data;
   } catch (error) {

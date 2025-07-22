@@ -49,7 +49,7 @@ function Home() {
             </p>
           </div>
 
-          <div className={classes.card}>
+          <div className={classes.card} onClick={() => navigate("/il-numbers")}>
             <span
               style={{ color: "grey" }}
               className={`${classes.cardIcon} material-symbols-outlined`}
