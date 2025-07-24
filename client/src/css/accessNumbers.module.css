@@ -1,0 +1,31 @@
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 120, 255, 0.2);
+  padding: 16px 24px;
+  margin: 12px auto;
+  max-width: 500px;
+  direction: rtl;
+  transition: transform 0.2s ease;
+  font-family: sans-serif;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 16px rgba(0, 120, 255, 0.35);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-weight: bold;
+  color: #0056b3;
+}
+
+.value {
+  color: #333;
+}

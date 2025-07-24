@@ -2,32 +2,32 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import SingleIlNumber from "./SingleIlNumber";
 import classes from "../css/SingleIlNumber.module.css";
+import { CircularProgress } from "@mui/material";
+import { fetchIlNumbers } from "./Servides-fetch/IL_Numbers";
 
 function ILnumbers() {
   const [ilNumbers, setIlNumbers] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    const fetchIlNumbers = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/il-numbers`
-        );
-        const data = await response.json();
-        return { success: true, data: data || [] };
-      } catch (error) {
-        return { success: false, message: "Error fetching IL numbers" };
-      }
-    };
+    setLoading(true);
     fetchIlNumbers().then((data) => {
       setIlNumbers(data || {});
+      setLoading(false);
     });
   }, []);
   return (
-    <div style={{ minWidth: "100vh" }}>
+    <div>
       <h1>מספרים ישראליים</h1>
-      <div className={classes.topSpace}></div>
+
+      {loading && (
+        <div className={classes.loadingContainer}>
+          <CircularProgress />
+        </div>
+      )}
+
       <div className={classes.mainContainer}>
         {ilNumbers.data &&
-          ilNumbers.data?.map(
+          ilNumbers.data.map(
             (ilNumber, index) =>
               index >= 2 && <SingleIlNumber key={index} cust={ilNumber} />
           )}

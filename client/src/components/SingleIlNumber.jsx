@@ -10,7 +10,6 @@ function SingleIlNumber({ cust }) {
     return new Date(`${year}-${month}-${day}`);
   };
 
-  // ואז בתוך הקומפוננטה:
   const isOverdue = parseDate(nextPaymentDate) < new Date();
 
   return (
