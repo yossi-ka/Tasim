@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import classes from "../css/newRentForm.module.css";
+import  { useEffect, useRef, useState } from "react";
+import classes from "../../css/newRentForm.module.css";
 import { useNavigate } from "react-router-dom";
-import { addRent } from "./Servides-fetch/RentActions";
+import { addRent } from "../Servides-fetch/RentActions.js";
 import Select from "react-select";
 
 function NewRentForm() {

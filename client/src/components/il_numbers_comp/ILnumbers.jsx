@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import SingleIlNumber from "./SingleIlNumber";
-import classes from "../css/SingleIlNumber.module.css";
+import classes from "../../css/SingleIlNumber.module.css";
 import { CircularProgress } from "@mui/material";
-import { fetchIlNumbers } from "./Servides-fetch/IL_Numbers";
+import { fetchIlNumbers } from "../Servides-fetch/IL_Numbers.js";
 
 function ILnumbers() {
   const [ilNumbers, setIlNumbers] = useState([]);

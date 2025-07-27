@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../css/SingleIlNumber.module.css";
+import styles from "../../css/SingleIlNumber.module.css";
 
 function SingleIlNumber({ cust }) {
   const [name, amount, nextPaymentDate, phone] = cust;

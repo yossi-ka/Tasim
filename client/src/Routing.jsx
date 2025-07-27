@@ -1,15 +1,14 @@
-import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import Archive from "./components/Archive.jsx";
+import Archive from "./components/rent_comp/ArchiveRents.jsx";
 import ProtectedPages from "./components/ProtectedPages.jsx";
-import NewRent from "./components/NewRentForm.jsx";
-import EditRentForm from "./components/EditRentForm.jsx";
-import AccessNumbers from "./components/AccessNumbers.jsx";
-import ActiveRents from "./components/ActiveRents.jsx";
+import NewRent from "./components/rent_comp/NewRentForm.jsx";
+import EditRentForm from "./components/rent_comp/EditRentForm.jsx";
+import AccessNumbers from "./components/access_numbers_comp/AccessNumbers.jsx";
+import ActiveRents from "./components/rent_comp/ActiveRents.jsx";
 import SimActivation from "./components/SimActivation.jsx";
 import RcukRentals from "./components/RcukRentals.jsx";
-import ILnumbers from "./components/ILnumbers.jsx";
+import ILnumbers from "./components/il_numbers_comp/ILnumbers.jsx";
 
 function Routing() {
   return (

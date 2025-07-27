@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAccessNumbers } from "./Servides-fetch/AccessNumbers.js";
+import { getAccessNumbers } from "../Servides-fetch/AccessNumbers.js";
 import SingleAccessNumber from "./SingleAccessNumber.jsx";
 
 function AccessNumbers() {

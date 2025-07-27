@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import classes from "../css/newRentForm.module.css";
+import classes from "../../css/newRentForm.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
-import { editRent } from "./Servides-fetch/RentActions";
+import { editRent } from "../Servides-fetch/RentActions.js";
 
 function EditRentForm() {
   const [paymentStatus, setPaymentStatus] = useState("");

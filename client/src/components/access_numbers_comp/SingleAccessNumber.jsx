@@ -1,9 +1,7 @@
-import React from "react";
-import classes from "../css/accessNumbers.module.css";
+import classes from "../../css/accessNumbers.module.css";
 
 function SingleAccessNumber({ accessNumber }) {
   const { number, state, zone } = accessNumber;
-  console.log(number, "***", state, "***", zone);
 
   return (
     <div className={classes.card}>

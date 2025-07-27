@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import classes from "../css/archive.module.css";
+import classes from "../../css/archive.module.css";
 import { ConfigProvider, Table } from "antd";
 import he_IL from "antd/lib/locale/he_IL";
 import { CircularProgress } from "@mui/material";
-import { formatDate } from "../services/formatDate";
-import searchProps from "../services/searchANT";
+import { formatDate } from "../../services/formatDate";
+import searchProps from "../../services/searchANT";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { deleteRent, getActiveRents } from "./Servides-fetch/RentActions";
+import { deleteRent, getArchiveRents } from "../Servides-fetch/RentActions";
 
-function ActiveRents() {
+function Archive() {
   const navigate = useNavigate();
-  const [active, setActive] = useState([]);
+  const [archive, setArchive] = useState([]);
   const [loading, setLoading] = useState(false);
   const [expandedRowKeys, setExpandedRowKeys] = useState([]);
 
@@ -100,7 +100,7 @@ function ActiveRents() {
 
   useEffect(() => {
     setLoading(true);
-    getActiveRents(setActive);
+    getArchiveRents(setArchive);
     setLoading(false);
   }, []);
 
@@ -108,7 +108,7 @@ function ActiveRents() {
     <div className={classes.archiveContainer}>
       <button
         className={classes.addButton}
-        onClick={() => navigate("/rentals/new")}
+        onClick={() => navigate("/archive/new")}
       >
         הוסף
       </button>
@@ -118,7 +118,7 @@ function ActiveRents() {
           <Table
             columns={columns}
             pagination={{ pageSize: 10 }}
-            dataSource={active}
+            dataSource={archive}
             bordered
             className={classes.archiveTable}
             rowKey={(record) => record.id}
@@ -145,4 +145,4 @@ function ActiveRents() {
   );
 }
 
-export default ActiveRents;
+export default Archive;
