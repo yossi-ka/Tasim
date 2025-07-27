@@ -10,7 +10,7 @@ function AccessNumbers() {
         if (data.success) {
           setAccessNumbers(data.message);
         } else {
-          console.error(
+          console.log(
             "Failed to fetch access numbers (Server side): ",
             data.message
           );

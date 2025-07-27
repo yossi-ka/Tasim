@@ -6,8 +6,8 @@ import NewRent from "./components/rent_comp/NewRentForm.jsx";
 import EditRentForm from "./components/rent_comp/EditRentForm.jsx";
 import AccessNumbers from "./components/access_numbers_comp/AccessNumbers.jsx";
 import ActiveRents from "./components/rent_comp/ActiveRents.jsx";
-import SimActivation from "./components/SimActivation.jsx";
-import RcukRentals from "./components/RcukRentals.jsx";
+import SimActivation from "./components/sim_activation/SimActivation.jsx";
+import RcukRentals from "./components/sim_activation/RcukRentals.jsx";
 import ILnumbers from "./components/il_numbers_comp/ILnumbers.jsx";
 
 function Routing() {

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { getRcukRentals } from "./Servides-fetch/RentActions";
+import  { useEffect, useState } from "react";
+import { getRcukRentals } from "../Servides-fetch/RentActions";
 
 function RcukRentals() {
   const [rentals, setRentals] = useState([]);
