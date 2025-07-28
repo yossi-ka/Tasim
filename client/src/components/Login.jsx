@@ -19,7 +19,7 @@ function Login() {
     <div className={classes.loginPage}>
       <form onSubmit={handleSubmit} className={classes.loginForm}>
         <img src="/images/logo.png" alt="logo-tasim" className={classes.logo} />
-        <h2 className={classes.title}>התחברות</h2>
+        <h2 className={classes.title}>התחברות למערכת הניהול</h2>
 
         <input
           type="email"

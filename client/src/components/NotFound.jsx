@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function NotFound() {
   useEffect(() => {
     document.title = "דף לא נמצא";
   }, []);
 
-  return <div>NotFound</div>;
+  return <div>Page Not Found</div>;
 }
 
 export default NotFound;

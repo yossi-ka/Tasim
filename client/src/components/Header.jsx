@@ -7,16 +7,21 @@ function Header() {
     <div>
       <header>
         <img
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/mng")}
           src="/images/logo.png"
           alt="logo-tasim"
         />
         <nav>
           <ul className={classes.menu}>
-            <li onClick={() => navigate("/")}>עמוד הבית</li>
-            <li onClick={() => navigate("/rentals/new")}>הוספת השכרה</li>
-            <li onClick={() => navigate("/access-numbers")}>מספרי גישה</li>
-            <button className={classes.logout}>התנתק</button>
+            <li onClick={() => navigate("/mng")}>עמוד הבית</li>
+            <li onClick={() => navigate("/mng/rentals/new")}>הוספת השכרה</li>
+            <li onClick={() => navigate("/mng/access-numbers")}>מספרי גישה</li>
+            <button
+              className={classes.logout}
+              onClick={() => navigate("/home")}
+            >
+              התנתק
+            </button>
           </ul>
         </nav>
       </header>
