@@ -15,6 +15,10 @@ function ActiveRents() {
   const [loading, setLoading] = useState(false);
   const [expandedRowKeys, setExpandedRowKeys] = useState([]);
 
+  useEffect(() => {
+    document.title = "השכרות פעילות";
+  }, []);
+
   const handleExpand = (expanded, record) => {
     if (expanded) {
       setExpandedRowKeys([record.id]); // מאפשר רק לשורה אחת להיפתח בכל רגע

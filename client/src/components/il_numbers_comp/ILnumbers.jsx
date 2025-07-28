@@ -8,13 +8,16 @@ import { fetchIlNumbers } from "../Servides-fetch/IL_Numbers.js";
 function ILnumbers() {
   const [ilNumbers, setIlNumbers] = useState([]);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
+    document.title = "מספרים ישראליים";
     setLoading(true);
     fetchIlNumbers().then((data) => {
       setIlNumbers(data || {});
       setLoading(false);
     });
   }, []);
+
   return (
     <div>
       <h1>מספרים ישראליים</h1>

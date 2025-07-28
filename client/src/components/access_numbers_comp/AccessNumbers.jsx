@@ -5,6 +5,7 @@ import SingleAccessNumber from "./SingleAccessNumber.jsx";
 function AccessNumbers() {
   const [accessNumbers, setAccessNumbers] = useState([]);
   useEffect(() => {
+    document.title = "מספרי גישה בינלאומיים";
     getAccessNumbers()
       .then((data) => {
         if (data.success) {

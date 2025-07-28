@@ -8,6 +8,10 @@ function NewRentForm() {
   const [paymentStatus, setPaymentStatus] = useState("");
   const [countries, setCountries] = useState("");
 
+  useEffect(() => {
+    document.title = "טופס השכרה חדשה";
+  }, []);
+
   const nameRef = useRef();
   const countryRef = useRef();
   const deviceRef = useRef();

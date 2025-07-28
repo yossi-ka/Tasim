@@ -5,6 +5,7 @@ function RcukRentals() {
   const [rentals, setRentals] = useState([]);
 
   useEffect(() => {
+    document.title = "השכרות RCUK";
     getRcukRentals().then((rentals) => setRentals(rentals));
   }, []);
 

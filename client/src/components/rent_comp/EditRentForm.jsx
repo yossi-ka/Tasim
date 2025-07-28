@@ -6,6 +6,10 @@ import { editRent } from "../Servides-fetch/RentActions.js";
 function EditRentForm() {
   const [paymentStatus, setPaymentStatus] = useState("");
 
+  useEffect(() => {
+    document.title = "עריכת השכרה";
+  }, []);
+
   const location = useLocation();
   const rent = location.state?.rent;
 

@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { PhoneCall, Archive, Globe, Smartphone } from "lucide-react";
 import classes from "../css/home.module.css";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "טסים - ניהול המערכת";
+  }, []);
+
   return (
     <div>
       <main className={classes.mainContent}>
