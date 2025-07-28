@@ -14,8 +14,9 @@ function Header() {
         <nav>
           <ul className={classes.menu}>
             <li onClick={() => navigate("/home")}>עמוד הבית</li>
-            <li>הזמנת טלפון</li>
+            <li onClick={() => navigate("/order-form")}>הזמנת טלפון</li>
             <li onClick={() => navigate("/mng/access-numbers")}>מספרי גישה</li>
+            <li onClick={() => navigate("/contact")}>צור קשר</li>
             <button
               className={classes.logout}
               onClick={() => navigate("/login")}

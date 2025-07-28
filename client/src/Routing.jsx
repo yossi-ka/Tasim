@@ -14,6 +14,9 @@ import NotFound from "./components/NotFound.jsx";
 import Home from "./components/Home.jsx";
 import About from "./components/pages/About.jsx";
 import PublicPages from "./components/PublicPages.jsx";
+import Pricing from "./components/pages/Pricing.jsx";
+import Contact from "./components/pages/Contact.jsx";
+import OrderForm from "./components/pages/OrderForm.jsx";
 
 function Routing() {
   return (
@@ -23,6 +26,9 @@ function Routing() {
         <Route path="/home" element={<Home />} />
         <Route element={<PublicPages />}>
           <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/order-form" element={<OrderForm />} />
         </Route>
 
         <Route path="/mng" element={<ProtectedPages />}>

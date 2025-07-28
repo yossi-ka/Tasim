@@ -1,7 +1,9 @@
 import React from "react";
 import classes from "../../css/about.module.css";
+import { useNavigate } from "react-router-dom";
 
 function About() {
+  const navigate = useNavigate()
   return (
     <div className={classes.container}>
       <h1 className={classes.title}>'טסים' זה אנחנו...</h1>
@@ -21,7 +23,7 @@ function About() {
           טסים – איתך לאורך כל הדרך, זה לא רק סלוגן...
         </p>
       </p>
-      <button className={classes.button}>שאלת השאלות - המחירים שלנו</button>
+      <button onClick={()=>navigate('/pricing')} className={classes.button}>שאלת השאלות - המחירים שלנו</button>
     </div>
   );
 }
