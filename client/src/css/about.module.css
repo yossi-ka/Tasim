@@ -1,0 +1,60 @@
+:root {
+  --about-main-color: #1e88e5; /* כחול רגיל */
+  --about-secondary-color: #1565c0; /* כחול כהה יותר - לצבע כפתור בהובר */
+  --about-background-color: #f0f9ff; /* רקע תכלת-בהיר נעים */
+  --about-text-color: #333; /* טקסט כהה ונוח לקריאה */
+  --about-font-family: "Heebo", sans-serif;
+}
+
+.container {
+  direction: rtl;
+  background: var(--about-background-color);
+  padding: 4rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 700px;
+  margin: 3rem auto;
+  transition: all 0.3s ease;
+  font-family: var(--about-font-family);
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--about-main-color); /* במקום גרדיאנט, צבע רגיל */
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.text {
+  font-size: 1.2rem;
+  color: var(--about-text-color);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  text-align: justify;
+}
+
+.slogan {
+  color: var(--about-main-color);
+  font-weight: bold;
+}
+
+.button {
+  background-color: var(--about-main-color);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.button:hover {
+  background-color: var(--about-secondary-color);
+  transform: scale(1.05);
+}

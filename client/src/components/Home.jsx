@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ChevronDown,
-  //   Star,
-  //   Zap,
-  //   Heart,
-  //   Globe,
   ArrowLeft,
   Radio,
   Flag,
   Headphones,
-  Gift,
-  Cloud,
-  Target,
   MousePointerClick,
 } from "lucide-react";
 import classes from "../css/home.module.css";
@@ -20,6 +14,12 @@ function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "טסים - דף הבית";
+  }, []);
 
   useEffect(() => {
     setIsVisible(true);
@@ -110,22 +110,28 @@ function Home() {
               isVisible ? classes.visible : ""
             }`}
           >
-            <h1 className={classes.heroTitle}>טסים ברוגע, טסים על בטוח..</h1>
+            <h1 className={classes.heroTitle}>טסים ברוגע. טסים על בטוח.</h1>
             <p className={classes.heroSubtitle}>
-              חווית נסיעה אחרת, עם תקשורת בינלאומית מתקדמת ושירות לקוחות מעולה,
-              איתכם - לאורך כל הדרך.
+              השכרת טלפונים וסימים לחו"ל <br /> חווית נסיעה אחרת, עם תקשורת
+              בינלאומית מתקדמת ושירות לקוחות מעולה,
+              <br /> טסים איתכם - לאורך כל הדרך.
             </p>
 
             <div className={classes.heroButtons}>
               <button className={classes.primaryButton}>
                 <span className={classes.buttonContent}>
                   התחל עכשיו
-                  <ArrowLeft className="w-5 h-5" />
+                  <ArrowLeft className={classes.arrowLeft} />
                 </span>
                 <div className={classes.buttonOverlay} />
               </button>
 
-              <button className={classes.secondaryButton}>למד עוד</button>
+              <button
+                onClick={() => navigate("/about")}
+                className={classes.secondaryButton}
+              >
+                ספרו לי עוד
+              </button>
             </div>
           </div>
 
@@ -172,9 +178,10 @@ function Home() {
         <section className={classes.ctaSection}>
           <div className={classes.ctaContainer}>
             <div className={classes.ctaCard}>
-              <h2 className={classes.ctaTitle}>מוכנים להתחיל?</h2>
+              <h2 className={classes.ctaTitle}>מוכנים? הכל כבר ארוז?</h2>
               <p className={classes.ctaSubtitle}>
-                הצטרפו אלינו למסע מרתק אל העתיד
+                בואו נתחיל את הטיול שלכם עם טסים! <br />
+                להישאר מחוברים בכל מקום בעולם, מעולם לא היה קל יותר.
               </p>
 
               <button className={classes.ctaButton}>

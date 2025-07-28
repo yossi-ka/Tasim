@@ -12,6 +12,8 @@ import ILnumbers from "./components/il_numbers_comp/ILnumbers.jsx";
 import Login from "./components/Login.jsx";
 import NotFound from "./components/NotFound.jsx";
 import Home from "./components/Home.jsx";
+import About from "./components/pages/About.jsx";
+import PublicPages from "./components/PublicPages.jsx";
 
 function Routing() {
   return (
@@ -19,7 +21,10 @@ function Routing() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route element={<PublicPages />}>
+          <Route path="/about" element={<About />} />
+        </Route>
+
         <Route path="/mng" element={<ProtectedPages />}>
           <Route index element={<ManageHome />} />
           <Route path="rentals" element={<ActiveRents />} />
@@ -33,6 +38,8 @@ function Routing() {
           <Route path="sim-activation" element={<SimActivation />} />
           <Route path="il-numbers" element={<ILnumbers />} />
         </Route>
+
+        <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

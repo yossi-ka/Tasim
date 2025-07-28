@@ -84,7 +84,8 @@
 
 .heroTitle {
   font-size: 4rem;
-  font-weight: 900;
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
   background: linear-gradient(to right, #f472b6, #a78bfa, #67e8f9);
   background-clip: text;
   -webkit-background-clip: text;
@@ -100,11 +101,13 @@
 }
 
 .heroSubtitle {
+  font-family: "Heebo", sans-serif;
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 5rem;
-  max-width: 32rem;
   line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 @media (min-width: 768px) {
@@ -119,6 +122,7 @@
   gap: 1rem;
   justify-content: center;
   margin-bottom: 3rem;
+  font-family: "Varela Round", sans-serif;
 }
 
 @media (min-width: 640px) {
@@ -154,12 +158,14 @@
   gap: 0.5rem;
 }
 
-.buttonContent svg {
+.buttonContent .arrowLeft {
   transition: transform 0.3s ease;
+  animation: arrowMove 2s ease-in-out infinite;
 }
 
-.primaryButton:hover .buttonContent svg {
-  transform: translateX(0.25rem);
+.primaryButton:hover .arrowLeft {
+  transform: translateX(-0.35rem);
+  animation: arrowMoveHover 0.3s ease-in-out infinite;
 }
 
 .buttonOverlay {
@@ -194,13 +200,16 @@
 }
 
 .scrollIndicator {
-  position: absolute;
   bottom: 2rem;
   left: 50%;
-  transform: translateX(-50%);
   animation: bounce 1s infinite;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.6);
+}
+
+.scrollIndicator:hover {
+  color: white;
+  animation: none;
 }
 
 /* Features Section */
@@ -444,5 +453,29 @@
   }
   90% {
     transform: translate3d(0, -4px, 0);
+  }
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-0.35rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes arrowMoveHover {
+  0% {
+    transform: translateX(-0.15);
+  }
+  50% {
+    transform: translateX(-0.5rem);
+  }
+  100% {
+    transform: translateX(-0.15);
   }
 }

@@ -1,12 +1,12 @@
 import classes from "../css/manageHome.module.css";
 import React from "react";
-import ManageHeader from "./ManageHeader";
+import Header from "./Header";
 import { Outlet } from "react-router-dom";
 
-function ProtectedPages() {
+function PublicPages() {
   return (
     <div className={classes.homeContainer}>
-      <ManageHeader />
+      <Header />
       <Outlet />
       <footer>
         &copy; {new Date().getFullYear()} טסים - כל הזכויות שמורות
@@ -15,4 +15,4 @@ function ProtectedPages() {
   );
 }
 
-export default ProtectedPages;
+export default PublicPages;
