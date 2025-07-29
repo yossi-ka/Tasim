@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "../../css/about.module.css";
 import { useNavigate } from "react-router-dom";
 
 function About() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "אודות";
+  }, []);
+
   return (
     <div className={classes.container}>
       <h1 className={classes.title}>'טסים' זה אנחנו...</h1>
@@ -20,10 +25,12 @@ function About() {
         בעיה שתיווצר (שלא תיווצר).
         <br />
         <p className={classes.slogan}>
-          טסים – איתך לאורך כל הדרך, זה לא רק סלוגן...
+          טסים – השותפים שלך למסע, זה לא רק סלוגן...
         </p>
       </p>
-      <button onClick={()=>navigate('/pricing')} className={classes.button}>שאלת השאלות - המחירים שלנו</button>
+      <button onClick={() => navigate("/pricing")} className={classes.button}>
+        שאלת השאלות - המחירים שלנו
+      </button>
     </div>
   );
 }

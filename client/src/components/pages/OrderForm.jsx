@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from "react";
 
 function OrderForm() {
-  return (
-    <div>OrderForm</div>
-  )
+  useEffect(() => {
+    document.title = "הזמנה";
+  }, []);
+
+  return <div>OrderForm</div>;
 }
 
-export default OrderForm
+export default OrderForm;

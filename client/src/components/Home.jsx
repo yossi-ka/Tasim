@@ -1,124 +1,119 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  ChevronDown,
-  ArrowLeft,
-  Radio,
-  Flag,
-  Headphones,
-  MousePointerClick,
-} from "lucide-react";
+import { ChevronDown, ArrowLeft } from "lucide-react";
 import classes from "../css/home.module.css";
+import { heroTexts } from "./HomeAnimations";
+import { features } from "./HomeAnimations";
+import { services } from "./HomeAnimations";
+import HomeBGEffects from "./HomeBGEffects";
 
 function Home() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-
   const navigate = useNavigate();
 
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // useEffect לאנימציית הטקסט
+  useEffect(() => {
+    const currentText = heroTexts[currentTextIndex];
+    let timeoutId;
+
+    if (isTyping) {
+      // הוספת אותיות
+      if (displayedText.length < currentText.length) {
+        timeoutId = setTimeout(() => {
+          setDisplayedText(currentText.slice(0, displayedText.length + 1));
+        }, 100);
+      } else {
+        // המתנה לפני מחיקה
+        timeoutId = setTimeout(() => {
+          setIsTyping(false);
+        }, 2000);
+      }
+    } else {
+      // מחיקת אותיות
+      if (displayedText.length > 0) {
+        timeoutId = setTimeout(() => {
+          setDisplayedText(displayedText.slice(0, -1));
+        }, 5);
+      } else {
+        // מעבר לטקסט הבא
+        setTimeout(() => {
+          setCurrentTextIndex(
+            (prevIndex) => (prevIndex + 1) % heroTexts.length
+          );
+          setIsTyping(true);
+        }, 1200);
+      }
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [displayedText, isTyping, currentTextIndex]);
+
+  // useEffect לעדכון כותרת הדף
   useEffect(() => {
     document.title = "טסים - דף הבית";
   }, []);
 
-  useEffect(() => {
-    setIsVisible(true);
+  //  פונקציה לגלילה לחלק השירותים
+  const scrollToServices = () => {
+    const section = document.getElementById("services");
+    if (section) {
+      // במקום scrollIntoView, השתמש ב-scrollTo עם offset
+      const offsetTop = section.offsetTop - 100; // 100px מרווח מעל
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
 
-    const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const features = [
-    {
-      icon: <Radio className="w-8 h-8" />,
-      title: "קליטה",
-      desc: "קליטה מעולה בכל מקום שתהיו",
-    },
-    {
-      icon: <MousePointerClick className="w-8 h-8" />,
-      title: "שקט נפשי",
-      desc: "הכל כולל הכל, ללא הפתעות",
-    },
-    {
-      icon: <Flag className="w-8 h-8" />,
-      title: "מספר ישראלי",
-      desc: "מספר ישראלי לכל השכרה",
-    },
-    {
-      icon: <Headphones className="w-8 h-8" />,
-      title: "תמיכה",
-      desc: "תמיכה 24/6, בכל מקום בעולם",
-    },
-  ];
+  //  פונקציה לגלילה לחלק הבא של התכונות
+  const scrollToNextSection = () => {
+    const featuresSection = document.getElementById("features");
+    if (featuresSection) {
+      const offsetTop = featuresSection.offsetTop - 50;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <div className={classes.container}>
       {/* Background Effects */}
-      <div className={classes.backgroundEffects}>
-        {/* Animated gradient orbs */}
-        <div
-          className={classes.gradientOrb1}
-          style={{
-            left: mousePos.x / 10,
-            top: mousePos.y / 10,
-            transform: `translate(-50%, -50%) scale(${1 + scrollY / 5000})`,
-          }}
-        />
-        <div
-          className={classes.gradientOrb2}
-          style={{
-            right: mousePos.x / 15,
-            bottom: mousePos.y / 15,
-            transform: `translate(50%, 50%) scale(${1 + scrollY / 8000})`,
-          }}
-        />
-
-        {/* Floating particles */}
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className={classes.particle}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
-            }}
-          />
-        ))}
-      </div>
+      <HomeBGEffects setIsVisible={setIsVisible} />
 
       {/* Main Content */}
       <div className={classes.mainContent}>
         {/* Hero Section */}
         <section className={classes.heroSection}>
+          <div className={classes.logo}>
+            <img src="/images/logo.png" alt="logo-tasim" />
+          </div>
           <div
             className={`${classes.heroContent} ${
               isVisible ? classes.visible : ""
             }`}
           >
-            <h1 className={classes.heroTitle}>טסים ברוגע. טסים על בטוח.</h1>
+            <h1 className={classes.heroTitle}>
+              {displayedText}
+              <span className={classes.cursor}>|</span>
+            </h1>
             <p className={classes.heroSubtitle}>
               השכרת טלפונים וסימים לחו"ל <br /> חווית נסיעה אחרת, עם תקשורת
               בינלאומית מתקדמת ושירות לקוחות מעולה,
-              <br /> טסים איתכם - לאורך כל הדרך.
+              <br /> טסים - השותפים שלכם למסע.
             </p>
 
             <div className={classes.heroButtons}>
-              <button className={classes.primaryButton}>
+              <button
+                onClick={scrollToNextSection}
+                className={classes.primaryButton}
+              >
                 <span className={classes.buttonContent}>
                   התחל עכשיו
                   <ArrowLeft className={classes.arrowLeft} />
@@ -132,22 +127,28 @@ function Home() {
               >
                 ספרו לי עוד
               </button>
+
+              <button
+                onClick={scrollToServices}
+                className={classes.primaryButton}
+              >
+                <span className={classes.buttonContent}>מה יש לנו להציע?</span>
+                <div className={classes.buttonOverlay} />
+              </button>
             </div>
           </div>
 
           {/* Scroll indicator */}
           <div
             className={classes.scrollIndicator}
-            onClick={() =>
-              window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
-            }
+            onClick={scrollToNextSection}
           >
             <ChevronDown className="w-8 h-8" />
           </div>
         </section>
 
         {/* Features Section */}
-        <section className={classes.featuresSection}>
+        <section id="features" className={classes.featuresSection}>
           <div className={classes.featuresContainer}>
             <h2 className={classes.featuresTitle}>למה לבחור טסים?</h2>
 
@@ -168,6 +169,53 @@ function Home() {
 
                   {/* Glow effect */}
                   <div className={classes.featureGlow} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className={classes.servicesSection}>
+          <div className={classes.servicesContainer}>
+            <h2 id="services" className={classes.servicesTitle}>
+              השירותים שלנו
+            </h2>
+            <p className={classes.servicesSubtitle}>
+              פתרונות תקשורת מתקדמים לכל סוג של נסיעה
+            </p>
+
+            <div className={classes.servicesGrid}>
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className={classes.serviceCard}
+                  style={{
+                    animationDelay: `${index * 150}ms`,
+                  }}
+                >
+                  <div className={classes.serviceHeader}>
+                    <div className={classes.serviceIcon}>{service.icon}</div>
+                    <h3 className={classes.serviceTitle}>{service.title}</h3>
+                    <p className={classes.serviceDesc}>{service.desc}</p>
+                  </div>
+
+                  <div className={classes.serviceFeatures}>
+                    {service.features.map((feature, i) => (
+                      <div key={i} className={classes.serviceFeature}>
+                        <div className={classes.featureBullet} />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <button className={classes.serviceButton}>
+                    <span>לפרטים נוספים</span>
+                    <ArrowLeft className="w-4 h-4" />
+                  </button>
+
+                  {/* Service glow effect */}
+                  <div className={classes.serviceGlow} />
                 </div>
               ))}
             </div>

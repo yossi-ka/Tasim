@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function Pricing() {
+  useEffect(()=>{document.title="מחירים"},[])
   return (
     <div>Pricing</div>
   )
