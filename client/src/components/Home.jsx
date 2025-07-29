@@ -110,10 +110,7 @@ function Home() {
             </p>
 
             <div className={classes.heroButtons}>
-              <button
-                onClick={scrollToNextSection}
-                className={classes.primaryButton}
-              >
+              <button className={classes.primaryButton}>
                 <span className={classes.buttonContent}>
                   התחל עכשיו
                   <ArrowLeft className={classes.arrowLeft} />

@@ -1,0 +1,80 @@
+.contactContainer {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+  direction: rtl;
+  text-align: right;
+  font-family: "Arial", sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.contactContainer .title {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.contactContainer .subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #777;
+}
+
+.contactContainer .form label {
+  display: block;
+  margin-bottom: 1rem;
+  color: #222;
+  font-weight: 500;
+}
+
+.contactContainer .form input,
+.contactContainer .form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.contactContainer .form input:focus,
+.contactContainer .form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.contactContainer .sendButton {
+  /* margin-top: 1rem; */
+  padding: 0.7rem 1.5rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contactContainer .sendButton:hover {
+  background-color: #0056b3;
+}
+
+.contactContainer .error {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+.contactContainer .success {
+  color: green;
+  margin-top: 0.5rem;
+}
+
+.contactContainer textarea {
+  resize: none;
+  font-family: "Arial", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}

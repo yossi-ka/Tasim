@@ -63,7 +63,7 @@
   color: #bfdeff;
 }
 
-.homeContainer .logout {
+.homeContainer .login {
   background-color: #dc3545;
   color: #fff;
   border: none;
@@ -71,10 +71,10 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-right: 40px;
+  /* margin-right: 40px; */
 }
 
-.homeContainer .logout:hover {
+.homeContainer .login:hover {
   background-color: #c83a48;
 }
 

@@ -18,7 +18,7 @@ function Header() {
             <li onClick={() => navigate("/mng/access-numbers")}>מספרי גישה</li>
             <li onClick={() => navigate("/contact")}>צור קשר</li>
             <button
-              className={classes.logout}
+              className={classes.login}
               onClick={() => navigate("/login")}
             >
               התחבר
