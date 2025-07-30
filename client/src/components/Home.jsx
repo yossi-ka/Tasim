@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, ArrowLeft } from "lucide-react";
 import classes from "../css/home.module.css";
-import { heroTexts } from "./HomeAnimations";
-import { features } from "./HomeAnimations";
-import { services } from "./HomeAnimations";
-import HomeBGEffects from "./HomeBGEffects";
+import { heroTexts } from "./home_comp/HomeAnimations";
+import { features } from "./home_comp/HomeAnimations";
+import { services } from "./home_comp/HomeAnimations";
+import HomeBGEffects from "./home_comp/HomeBGEffects";
 
 function Home() {
   const navigate = useNavigate();

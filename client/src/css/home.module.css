@@ -1,6 +1,57 @@
 :root {
   --numOfServices: 3; /* Adjust this value based on the number of services */
   --numOfFeatures: 4; /* Adjust this value based on the number of features */
+  --feat_serv_Titels: linear-gradient(to right, #f472b6, #a78bfa, #67e8f9);
+  --BGMainColor: linear-gradient(135deg, #581c87 0%, #1e3a8a 50%, #312e81 100%);
+  --gradientOrb1: linear-gradient(
+    to right,
+    rgba(236, 72, 153, 0.3),
+    rgba(139, 92, 246, 0.3)
+  );
+  --gradientOrb2: linear-gradient(
+    to right,
+    rgba(6, 182, 212, 0.2),
+    rgba(59, 130, 246, 0.2)
+  );
+  --heroTitle: linear-gradient(to right, #f472b6, #a78bfa, #67e8f9);
+  --cursor: linear-gradient(to right, #f472b6, #a78bfa, #67e8f9);
+  --primaryButton: linear-gradient(to right, #ec4899, #8b5cf6);
+  --buttonOverlay: linear-gradient(to right, #8b5cf6, #ec4899);
+  --featureIcon: linear-gradient(135deg, #f472b6, #8b5cf6);
+  --serviceIcon: linear-gradient(135deg, #ec4899, #8b5cf6);
+  --featureGlow: linear-gradient(
+    135deg,
+    rgba(236, 72, 153, 0.2),
+    rgba(139, 92, 246, 0.2)
+  );
+  --servicesSection: linear-gradient(
+    135deg,
+    rgba(88, 28, 135, 0.1),
+    rgba(30, 58, 138, 0.1)
+  );
+  --featureBullet: linear-gradient(135deg, #f472b6, #8b5cf6);
+  --serviceButton: linear-gradient(
+    135deg,
+    rgba(236, 72, 153, 0.2),
+    rgba(139, 92, 246, 0.2)
+  );
+  --serviceGlow: linear-gradient(
+    135deg,
+    rgba(236, 72, 153, 0.3),
+    rgba(139, 92, 246, 0.3)
+  );
+  --serviceButtonHover: linear-gradient(
+    135deg,
+    rgba(236, 72, 153, 0.3),
+    rgba(139, 92, 246, 0.3)
+  );
+  --ctaCard: linear-gradient(
+    to right,
+    rgba(236, 72, 153, 0.2),
+    rgba(139, 92, 246, 0.2)
+  );
+  --ctaButton: linear-gradient(to right, #ec4899, #8b5cf6);
+  --ctaButtonOverlay: linear-gradient(to right, #8b5cf6, #ec4899);
 }
 
 html {
@@ -17,7 +68,7 @@ body {
 /* Container */
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #581c87 0%, #1e3a8a 50%, #312e81 100%);
+  background: var(--BGMainColor);
   position: relative;
   /* overflow: hidden; */
 }
@@ -34,11 +85,7 @@ body {
   position: absolute;
   width: 24rem;
   height: 24rem;
-  background: linear-gradient(
-    to right,
-    rgba(236, 72, 153, 0.3),
-    rgba(139, 92, 246, 0.3)
-  );
+  background: var(--gradientOrb1);
   border-radius: 50%;
   filter: blur(3rem);
   animation: pulse 2s infinite;
@@ -48,11 +95,7 @@ body {
   position: absolute;
   width: 20rem;
   height: 20rem;
-  background: linear-gradient(
-    to right,
-    rgba(6, 182, 212, 0.2),
-    rgba(59, 130, 246, 0.2)
-  );
+  background: var(--gradientOrb2);
   border-radius: 50%;
   filter: blur(3rem);
   animation: pulse 2s infinite;
@@ -114,7 +157,7 @@ body {
   font-size: 4rem;
   font-family: "Rubik", sans-serif;
   font-weight: 700;
-  background: linear-gradient(to right, #f472b6, #a78bfa, #67e8f9);
+  background: var(--heroTitle);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -132,7 +175,7 @@ body {
 }
 
 .cursor {
-  background: linear-gradient(to right, #f472b6, #a78bfa, #67e8f9);
+  background: var(--cursor);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -181,7 +224,7 @@ body {
 .primaryButton {
   position: relative;
   padding: 1rem 2rem;
-  background: linear-gradient(to right, #ec4899, #8b5cf6);
+  background: var(--primaryButton);
   border-radius: 9999px;
   color: white;
   font-weight: bold;
@@ -218,7 +261,7 @@ body {
 .buttonOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #8b5cf6, #ec4899);
+  background: var(--buttonOverlay);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -270,20 +313,6 @@ body {
   margin: 0 auto;
 }
 
-.featuresTitle {
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-align: center;
-  color: white;
-  margin-bottom: 4rem;
-}
-
-@media (min-width: 768px) {
-  .featuresTitle {
-    font-size: 3.75rem;
-  }
-}
-
 .featuresGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -328,7 +357,7 @@ body {
   justify-content: center;
   width: 4rem;
   height: 4rem;
-  background: linear-gradient(135deg, #f472b6, #8b5cf6);
+  background: var(--featureIcon);
   border-radius: 50%;
   margin-bottom: 1.5rem;
   transition: transform 0.3s ease;
@@ -353,11 +382,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 1rem;
-  background: linear-gradient(
-    135deg,
-    rgba(236, 72, 153, 0.2),
-    rgba(139, 92, 246, 0.2)
-  );
+  background: var(--featureGlow);
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: -1;
@@ -371,11 +396,7 @@ body {
 /* Services Section */
 .servicesSection {
   padding: 6rem 1.5rem;
-  background: linear-gradient(
-    135deg,
-    rgba(88, 28, 135, 0.1),
-    rgba(30, 58, 138, 0.1)
-  );
+  background: var(--servicesSection);
 }
 
 .servicesContainer {
@@ -383,20 +404,22 @@ body {
   margin: 0 auto;
 }
 
-.servicesTitle {
+.servicesTitle,
+.featuresTitle {
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
   color: white;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, #f472b6, #a78bfa, #67e8f9);
+  background: var(--feat_serv_Titels);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
 @media (min-width: 768px) {
-  .servicesTitle {
+  .servicesTitle,
+  .featuresTitle {
     font-size: 3.5rem;
   }
 }
@@ -461,7 +484,7 @@ body {
   justify-content: center;
   width: 5rem;
   height: 5rem;
-  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  background: var(--serviceIcon);
   border-radius: 1.5rem;
   margin-bottom: 1.5rem;
   transition: all 0.4s ease;
@@ -507,7 +530,7 @@ body {
 .featureBullet {
   width: 6px;
   height: 6px;
-  background: linear-gradient(135deg, #f472b6, #8b5cf6);
+  background: var(--featureBullet);
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -518,11 +541,7 @@ body {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.8rem 1.5rem;
-  background: linear-gradient(
-    135deg,
-    rgba(236, 72, 153, 0.2),
-    rgba(139, 92, 246, 0.2)
-  );
+  background: var(--serviceButton);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.8rem;
   color: white;
@@ -534,11 +553,7 @@ body {
 }
 
 .serviceButton:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(236, 72, 153, 0.3),
-    rgba(139, 92, 246, 0.3)
-  );
+  background: var(--serviceButtonHover);
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
 }
@@ -555,11 +570,7 @@ body {
   position: absolute;
   inset: -2px;
   border-radius: 1.5rem;
-  background: linear-gradient(
-    135deg,
-    rgba(236, 72, 153, 0.3),
-    rgba(139, 92, 246, 0.3)
-  );
+  background: var(--serviceGlow);
   opacity: 0;
   transition: opacity 0.6s ease;
   z-index: -1;
@@ -585,11 +596,7 @@ body {
   position: relative;
   padding: 3rem;
   border-radius: 1.5rem;
-  background: linear-gradient(
-    to right,
-    rgba(236, 72, 153, 0.2),
-    rgba(139, 92, 246, 0.2)
-  );
+  background: var(--ctaCard);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -616,7 +623,7 @@ body {
 .ctaButton {
   position: relative;
   padding: 1.5rem 3rem;
-  background: linear-gradient(to right, #ec4899, #8b5cf6);
+  background: var(--ctaButton);
   border-radius: 9999px;
   color: white;
   font-weight: bold;
@@ -655,7 +662,7 @@ body {
 .ctaButtonOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #8b5cf6, #ec4899);
+  background: var(--ctaButtonOverlay);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -665,15 +672,6 @@ body {
 }
 
 /* Animations */
-/* @keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-} */
 
 @keyframes ping {
   75%,

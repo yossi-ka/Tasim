@@ -1,4 +1,4 @@
-import classes from "../css/home.module.css";
+import classes from "../../css/home.module.css";
 import { useState, useEffect } from "react";
 
 function HomeBGEffects({ setIsVisible }) {
