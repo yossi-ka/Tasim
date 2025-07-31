@@ -41,31 +41,34 @@ export const features = [
 
 export const services = [
   {
-    icon: <span class="material-symbols-outlined">deskphone</span>,
-    title: "השכרת טלפונים",
-    desc: "מכשירים חדישים ואמינים",
+    icon: <span className="material-symbols-outlined">deskphone</span>,
+    title: "השכרת טלפונים וסימים",
+    desc: "כל המדינות, כל היעדים",
     features: [
-      "מכשירים וויזים כשרים",
-      "מטען מקומי כלול",
-      "עברית מלאה",
-      "דור 4",
+      "ללא הגבלת דקות שיחה, מקומיות ולישראל",
+      "מספר ישראלי בכל השכרה",
+      "גלישה ו-SMS כלולים (בהשכרת סים)",
+      "מכשירים וויזים כשרים בלבד",
+      "מטען מקומי מצורף",
+      "עברית מלאה, דור 4",
       "סים לגיבוי",
     ],
+    linkTo: "/order-form",
   },
+  // {
+  //   icon: <span className="material-symbols-outlined">sim_card</span>,
+  //   title: "כרטיסי SIM",
+  //   desc: "שיחות ללא הגבלה, ללא מכשיר טלפון",
+  //   features: [
+  //     "ללא הגבלת דקות שיחה",
+  //     "סימים גלובליים לכל היעדים",
+  //     "מספר ישראלי בכל השכרה",
+  //     "SMS ללא הגבלה",
+  //     "גלישה כלולה",
+  //   ],
+  // },
   {
-    icon: <span class="material-symbols-outlined">sim_card</span>,
-    title: "כרטיסי SIM",
-    desc: "שיחות ללא הגבלה",
-    features: [
-      "ללא הגבלת דקות שיחה",
-      "סימים גלובליים לכל היעדים",
-      "מספר ישראלי בכל השכרה",
-      "SMS ללא הגבלה",
-      "גלישה כלולה",
-    ],
-  },
-  {
-    icon: <span class="material-symbols-outlined">phone_in_talk</span>,
+    icon: <span className="material-symbols-outlined">phone_in_talk</span>,
     title: "מספרים ישראליים",
     desc: `עבור תושבי חו"ל`,
     features: [
@@ -74,5 +77,6 @@ export const services = [
       "זיהוי מתקשרים",
       "כרטיס חיוג לחיוג לישראל",
     ],
+    linkTo: "/mng/il-numbers",
   },
 ];

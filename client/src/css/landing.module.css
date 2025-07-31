@@ -1,57 +1,68 @@
 :root {
-  --numOfServices: 3; /* Adjust this value based on the number of services */
+  --numOfServices: 2; /* Adjust this value based on the number of services */
   --numOfFeatures: 4; /* Adjust this value based on the number of features */
-  --feat_serv_Titels: linear-gradient(to right, #f472b6, #a78bfa, #67e8f9);
-  --BGMainColor: linear-gradient(135deg, #581c87 0%, #1e3a8a 50%, #312e81 100%);
+  /* Custom colors  */
+  --redPink: #f43f5e;
+  --green: #22c55e;
+
+  --hero_feat_serv_Titels: linear-gradient(to right, #4ade80, #67e8f9, #fb7185);
+  --BGMainColor: linear-gradient(135deg, #0c0a3e 0%, #1e3a8a 50%, #1e40af 100%);
   --gradientOrb1: linear-gradient(
     to right,
-    rgba(236, 72, 153, 0.3),
-    rgba(139, 92, 246, 0.3)
+    rgba(34, 197, 94, 0.3),
+    rgba(244, 63, 94, 0.3)
   );
   --gradientOrb2: linear-gradient(
     to right,
-    rgba(6, 182, 212, 0.2),
-    rgba(59, 130, 246, 0.2)
+    rgba(34, 197, 94, 0.2),
+    rgba(244, 63, 94, 0.2)
   );
-  --heroTitle: linear-gradient(to right, #f472b6, #a78bfa, #67e8f9);
-  --cursor: linear-gradient(to right, #f472b6, #a78bfa, #67e8f9);
-  --primaryButton: linear-gradient(to right, #ec4899, #8b5cf6);
-  --buttonOverlay: linear-gradient(to right, #8b5cf6, #ec4899);
-  --featureIcon: linear-gradient(135deg, #f472b6, #8b5cf6);
-  --serviceIcon: linear-gradient(135deg, #ec4899, #8b5cf6);
+
+  --cursor: linear-gradient(
+    to right,
+    var(--green),
+    var(--redPink),
+    var(--green)
+  );
+  --primaryButton: linear-gradient(to right, var(--green), var(--redPink));
+  --buttonOverlay: linear-gradient(to right, var(--redPink), var(--green));
+  --featureIcon: linear-gradient(135deg, var(--green), var(--redPink));
+  --serviceIcon: linear-gradient(135deg, var(--redPink), var(--green));
   --featureGlow: linear-gradient(
     135deg,
-    rgba(236, 72, 153, 0.2),
-    rgba(139, 92, 246, 0.2)
+    rgba(34, 197, 94, 0.2),
+    rgba(244, 63, 94, 0.2)
   );
   --servicesSection: linear-gradient(
     135deg,
-    rgba(88, 28, 135, 0.1),
-    rgba(30, 58, 138, 0.1)
+    rgba(34, 197, 94, 0.1),
+    rgba(244, 63, 94, 0.1)
   );
-  --featureBullet: linear-gradient(135deg, #f472b6, #8b5cf6);
+
+  --featureBullet: linear-gradient(135deg, #f43f5e, #22c55e);
   --serviceButton: linear-gradient(
     135deg,
-    rgba(236, 72, 153, 0.2),
-    rgba(139, 92, 246, 0.2)
+    rgba(34, 197, 94, 0.2),
+    rgba(244, 63, 94, 0.2)
   );
   --serviceGlow: linear-gradient(
     135deg,
-    rgba(236, 72, 153, 0.3),
-    rgba(139, 92, 246, 0.3)
+    rgba(34, 197, 94, 0.3),
+    rgba(244, 63, 94, 0.3)
   );
   --serviceButtonHover: linear-gradient(
     135deg,
-    rgba(236, 72, 153, 0.3),
-    rgba(139, 92, 246, 0.3)
+    rgba(34, 197, 94, 0.3),
+    rgba(244, 63, 94, 0.3)
   );
   --ctaCard: linear-gradient(
     to right,
-    rgba(236, 72, 153, 0.2),
-    rgba(139, 92, 246, 0.2)
+    rgba(34, 197, 94, 0.2),
+    rgba(244, 63, 94, 0.2)
   );
-  --ctaButton: linear-gradient(to right, #ec4899, #8b5cf6);
-  --ctaButtonOverlay: linear-gradient(to right, #8b5cf6, #ec4899);
+
+  --ctaButton: linear-gradient(to right, #f43f5e, #16a34a);
+  --ctaButtonOverlay: linear-gradient(to right, #16a34a, #f43f5e);
 }
 
 html {
@@ -157,7 +168,7 @@ body {
   font-size: 4rem;
   font-family: "Rubik", sans-serif;
   font-weight: 700;
-  background: var(--heroTitle);
+  background: var(--hero_feat_serv_Titels);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -400,7 +411,7 @@ body {
 }
 
 .servicesContainer {
-  max-width: 75rem;
+  max-width: 55rem;
   margin: 0 auto;
 }
 
@@ -411,7 +422,7 @@ body {
   text-align: center;
   color: white;
   margin-bottom: 1rem;
-  background: var(--feat_serv_Titels);
+  background: var(--hero_feat_serv_Titels);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

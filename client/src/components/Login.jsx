@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import classes from "../css/login.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,6 +15,7 @@ function Login() {
     e.preventDefault();
     // פה אתה יכול לקרוא ל־API או לפיירבייס
     console.log("Email:", email, "Password:", password);
+    navigate("/mng");
   };
 
   return (

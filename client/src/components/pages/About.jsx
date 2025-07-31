@@ -28,8 +28,11 @@ function About() {
           טסים – השותפים שלך למסע, זה לא רק סלוגן...
         </p>
       </p>
-      <button onClick={() => navigate("/pricing")} className={classes.button}>
-        שאלת השאלות - המחירים שלנו
+      <button
+        onClick={() => navigate("/order-form")}
+        className={classes.button}
+      >
+        אני רוצה להזמין
       </button>
     </div>
   );

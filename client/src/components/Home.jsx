@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, ArrowLeft } from "lucide-react";
-import classes from "../css/home.module.css";
+import classes from "../css/landing.module.css";
 import { heroTexts } from "./home_comp/HomeAnimations";
 import { features } from "./home_comp/HomeAnimations";
 import { services } from "./home_comp/HomeAnimations";
@@ -110,11 +110,11 @@ function Home() {
             </p>
 
             <div className={classes.heroButtons}>
-              <button className={classes.primaryButton}>
-                <span className={classes.buttonContent}>
-                  התחל עכשיו
-                  <ArrowLeft className={classes.arrowLeft} />
-                </span>
+              <button
+                onClick={scrollToServices}
+                className={classes.primaryButton}
+              >
+                <span className={classes.buttonContent}>מה יש לנו להציע?</span>
                 <div className={classes.buttonOverlay} />
               </button>
 
@@ -125,11 +125,11 @@ function Home() {
                 ספרו לי עוד
               </button>
 
-              <button
-                onClick={scrollToServices}
-                className={classes.primaryButton}
-              >
-                <span className={classes.buttonContent}>מה יש לנו להציע?</span>
+              <button className={classes.primaryButton}>
+                <span className={classes.buttonContent}>
+                  התחל עכשיו
+                  <ArrowLeft className={classes.arrowLeft} />
+                </span>
                 <div className={classes.buttonOverlay} />
               </button>
             </div>
@@ -206,7 +206,10 @@ function Home() {
                     ))}
                   </div>
 
-                  <button className={classes.serviceButton}>
+                  <button
+                    onClick={() => navigate(service.linkTo)}
+                    className={classes.serviceButton}
+                  >
                     <span>לפרטים נוספים</span>
                     <ArrowLeft className="w-4 h-4" />
                   </button>

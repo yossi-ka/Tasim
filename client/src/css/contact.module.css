@@ -67,14 +67,16 @@
   margin-top: 0.5rem;
 }
 
-.contactContainer .success {
-  color: green;
-  margin-top: 0.5rem;
-}
-
 .contactContainer textarea {
   resize: none;
   font-family: "Arial", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.counter {
+  font-size: 0.85rem;
+  color: #6b7280;
+  float: left;
+  margin-top: 4px;
 }
